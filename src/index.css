@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+    --font-display: "PT Sans", sans-serif;
+    --font-body: "Open Sans", sans-serif;
+
+    --color-vista-dark: #235d79;
+    --color-vista-primary: #0b84cf;
+    --color-vista-light: #65b7ea;
+    --color-vista-lightest: #b4e7eb;
+    --color-vista-gradient: linear-gradient(to bottom, var(--color-vista-dark) 0%, var(--color-vista-primary) 30%, var(--color-vista-light) 70%, var(--color-vista-lightest) 100%);
+    --color-glass-bg: rgba(255, 255, 255, 0.2);
+    --color-glass-border: rgba(255, 255, 255, 0.3);
+
+    --glass-effect: backdrop-blur-sm backdrop-brightness-110;
+
+    --card-padding: 1.5rem;
+    --card-radius: 0.5rem;
+}
+
+@layer base {
+    :root {
+        background: var(--color-vista-gradient);
+        background-attachment: fixed;
+    }
+
+    h1 {
+        @apply font-display text-4xl font-bold;
+    }
+
+    h2 {
+        @apply font-display text-3xl font-bold;
+    }
+
+    h3 {
+        @apply font-display text-2xl font-semibold;
+    }
+
+    h4 {
+        @apply font-display text-xl font-semibold;
+    }
+
+    h5 {
+        @apply font-display text-lg font-semibold;
+    }
+
+    body {
+        @apply font-body;
+    }
+
+}
+
+@layer utilities {
+    .glass {
+        @apply backdrop-blur-sm backdrop-brightness-110 bg-white/20 border border-white/30 shadow-lg;
+    }
+
+    .vista-card-outer {
+        @apply backdrop-blur-sm backdrop-brightness-110 bg-white/20 border border-white/30 shadow-lg pt-8 p-1 rounded-lg hover:bg-white/30 transition-all duration-300;
+    }
+
+    .vista-card-inner {
+        @apply p-2
+    }
+}
