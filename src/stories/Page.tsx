@@ -1,73 +1,51 @@
-import React from 'react';
 
-import { Header } from './Header';
-import './page.css';
+// import '../index.css'
+import { NavBar, VistaStartOrb } from "@app/components/NavBar";
+import { items, navItems } from "@app/lib/testData.ts";
+import { Button } from "@app/components/Button";
+import { Card } from "@app/components/Card";
+import { Accordion } from "@app/components/Accordion";
 
-type User = {
-  name: string;
-};
-
-export const Page: React.FC = () => {
-  const [user, setUser] = React.useState<User>();
+export const Page = () => {
 
   return (
-    <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
-
-      <section className="storybook-page">
-        <h2>Pages in Storybook</h2>
-        <p>
-          We recommend building UIs with a{' '}
-          <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
-            <strong>component-driven</strong>
-          </a>{' '}
-          process starting with atomic components and ending with pages.
-        </p>
-        <p>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
-        </p>
-        <ul>
-          <li>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
-          </li>
-          <li>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
-          </li>
-        </ul>
-        <p>
-          Get a guided tutorial on component-driven development at{' '}
-          <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-            Storybook tutorials
-          </a>
-          . Read more in the{' '}
-          <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">
-            docs
-          </a>
-          .
-        </p>
-        <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with the{' '}
-          <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-                id="a"
-                fill="#999"
-              />
-            </g>
-          </svg>
-          Viewports addon in the toolbar
+      <div className="h-screen">
+        <NavBar
+            items={ navItems }
+            variant="black"
+            logo={ <VistaStartOrb/> }
+            actions={
+              <Button variant="primary" className="h-8 px-4">
+                Sign In
+              </Button>
+            }
+        />
+        <div className="bg-vista-gradient flex flex-col justify-center items-center h-full">
+          <Card className="max-w-full md:max-w-1/2" contentBackground="white">
+            <h2>Header</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi
+              ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+              esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+              in
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <Accordion items={ items }/>
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={ () => alert('clicked') }>Default</Button>
+              <Button variant="primary" onClick={ () => alert('clicked') }>Primary</Button>
+              <Button variant="secondary" onClick={ () => alert('clicked') }>Secondary</Button>
+              <Button variant="info" onClick={ () => alert('clicked') }>Info</Button>
+              <Button variant="success" onClick={ () => alert('clicked') }>Success</Button>
+              <Button variant="destructive" onClick={ () => alert('clicked') }>Destructive</Button>
+            </div>
+          </Card>
         </div>
-      </section>
-    </article>
+      </div>
   );
 };

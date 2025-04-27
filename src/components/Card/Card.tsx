@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 import { cn } from "@app/lib/utils.ts";
 
-type CardProps = {
+type Props = {
     children: ReactNode;
     contentBackground?: "transparent" | "white"
     className?: string
 }
 
-export const Card = ({ children, contentBackground = "transparent", className }: CardProps) => {
+export const Card = ({ children, contentBackground = "transparent", className }: Props) => {
     return (
         <div
             className={ cn(`vista-card-outer`, className) }>
