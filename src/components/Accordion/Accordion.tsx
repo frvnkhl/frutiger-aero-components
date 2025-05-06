@@ -9,7 +9,7 @@ export type AccordionItem = {
 
 type Props = {
     items: AccordionItem[]
-    className: string
+    className?: string
 }
 
 
