@@ -26,7 +26,7 @@ export const Accordion = ({ items, className }: Props) => {
             {
                 items.map(item => (
                     <div key={ item.key }
-                         className="w-full cursor-pointer p-2 rounded-lg hover:bg-gradient-to-b from-white to-blue-100 hover:border  hover:border-blue-400"
+                         className="w-full cursor-pointer p-2 border border-transparent rounded-lg hover:bg-gradient-to-b from-white to-blue-100 hover:border  hover:border-blue-400"
                          onClick={ () => toggleItem(item.key) }>
                         <div className=" flex justify-between ">
                             <h3 className="font-semibold text-2xl">{ item.title }</h3>

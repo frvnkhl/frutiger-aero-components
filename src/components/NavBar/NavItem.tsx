@@ -1,4 +1,3 @@
-// NavItem component for each navigation item - styled like Vista/7 taskbar items
 import { ReactNode } from "react";
 import { cn } from "@app/lib/utils.ts";
 import { cva } from "class-variance-authority";
@@ -10,7 +9,6 @@ type Props = {
     variant?: "default" | "blue" | "black" | "silver";
 };
 
-// Define text color variants
 const navTextVariants = cva("relative font-semibold drop-shadow-sm", {
     variants: {
         variant: {
@@ -26,12 +24,11 @@ const navTextVariants = cva("relative font-semibold drop-shadow-sm", {
 });
 
 export const NavItem = ({
-                     children,
-                     href,
-                     active = false,
-                     variant = "default",
-                 }: Props) => {
-    // Determine text color based on variant and active state
+                            children,
+                            href,
+                            active = false,
+                            variant = "default",
+                        }: Props) => {
     const textColorClass = active
         ? "text-white font-bold"
         : navTextVariants({ variant });
@@ -45,12 +42,12 @@ export const NavItem = ({
             )}
         >
             {/* Base pill shape */}
-            <div className="absolute inset-0 rounded-md transition-all duration-200 opacity-0 group-hover:opacity-100">
+            <div className="absolute inset-0 rounded-md transition-all duration-200 opacity-0 group-hover:opacity-50">
                 {/* Gradient background for hover/active state */}
                 <div
                     className={cn(
                         "absolute inset-0 rounded-md",
-                        active ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                        active ? "opacity-100" : "opacity-0 group-hover:opacity-50"
                     )}
                     style={{
                         background: active
@@ -61,9 +58,6 @@ export const NavItem = ({
 
                 {/* Glossy overlay */}
                 <div className="absolute inset-0 rounded-md bg-gradient-to-b from-white/40 to-transparent"></div>
-
-                {/* Top edge highlight */}
-                <div className="absolute inset-x-0 top-0 h-px bg-white/70 rounded-md"></div>
             </div>
 
             {/* Text content */}
